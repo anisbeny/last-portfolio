@@ -1,0 +1,75 @@
+@import "variables";
+@import "navbar";
+@import "home";
+@import "about";
+@import "services";
+@import "works";
+@import "contact";
+
+
+*, ::after, ::before{
+   
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   
+}
+
+:root{
+    font-size: 14px;
+    @media screen and (min-width: 1024px){
+        font-size: 16px;
+    }
+}
+body{
+    background: $fond;
+
+    font-family: $text;
+}
+#about_page, #services_page, #portfolio_page, #contact_page, #mentions_page{
+    width: 85%;
+    margin: auto;
+}
+
+h1{
+    font-family: $titre;
+    font-weight: 900;
+    text-transform: capitalize; 
+    color:$fushia;
+    text-align: center;
+    margin-top:15px;
+    margin-bottom: 2rem;
+}
+h2{
+    font-family: $titre;
+    font-weight: 500;
+    text-transform: capitalize; 
+    text-align: center;
+    color: $caryola;
+}
+h3{
+    font-family: $text;
+    font-weight: 400;
+    text-transform: capitalize; 
+   text-decoration: underline;
+   color: $grey;
+
+}
+p{
+    color:$grey;
+    padding:1.5rem;
+    line-height: 2;
+}
+footer{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top:2px solid $grey;
+    
+        a{
+            color:$grey;
+            font-size: 1rem;
+        }
+   
+}

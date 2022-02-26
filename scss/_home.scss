@@ -1,0 +1,198 @@
+@import "variables";
+@import "mixins";
+@import "extends";
+
+#home_page {
+    #presentation {
+        text-align: center;
+
+        .about {
+            p {
+                line-height: 2;
+
+                a {
+                    font-size: 1rem;
+                    color: $bleu;
+                    padding: 0 5px;
+                    text-decoration: underline;
+                   
+
+                 
+                }
+            }
+        }
+
+        .cta {
+            margin-bottom: 25px;
+
+            a {
+                position: relative;
+                @include cta($bleu);
+                &::after{
+                   @include hover($bleu);
+                }
+                &:hover::after{
+                   @extend %hover;
+                }
+            }
+        }
+
+        .links {
+
+
+            margin-bottom: 25px;
+
+            a {
+                padding-left: 25px;
+
+                img {
+                    width: 50px;
+                    background-color: $cream;
+                    border-radius: 50%;
+                    padding: 3px;
+                }
+            }
+        }
+
+        .drawing {
+
+            position: relative;
+            width: 100%;
+            height: 45vh;
+            margin-bottom: 25px;
+
+            .forme {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: transparent;
+                height: calc(100% - 10px);
+
+            }
+
+            .colab {
+                @include picture;
+                position: absolute;
+                opacity: .5;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+        }
+
+    }
+
+    #services {
+
+        padding-bottom: 4rem;
+
+        h1 {
+            margin-bottom: 3rem;
+        }
+
+
+        .container {
+            article {
+
+                width: 75%;
+                margin: 25px auto;
+                border-radius: 5px;
+                box-shadow: inset 2px 2px 4px, -2px -2px 4px;
+
+                h2 {
+                    color: $grey;
+                    text-decoration: underline;
+                    padding: 15px;
+                }
+
+                p {
+                    color: $grey;
+                }
+
+            }
+        }
+
+
+    }
+
+    #skills {
+        background-color: $cream;
+        padding-bottom: 3rem;
+        margin-bottom: 3rem;
+
+        h1 {
+            margin-bottom: 3rem;
+            padding-top: 25px;
+            color: #000;
+        }
+
+        .logos {
+            padding-left: 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            place-items: center;
+            row-gap: 25px;
+
+            @media (min-width:800px) {
+                grid-template-columns: repeat(8, 1fr);
+            }
+
+            img {
+                width: 50px;
+
+            }
+        }
+    }
+}
+
+@media screen and (min-width:800px) {
+    #presentation {
+
+        width: 75%;
+        margin: auto;
+
+        .drawing {
+            width: 75vh;
+        }
+    }
+
+
+
+}
+
+@media screen and (min-width:1024px) {
+    #presentation {
+        display: grid;
+        width: 85%;
+        grid-template-columns: repeat(4, 1fr);
+
+        .about {
+            grid-column: 1 / 3;
+            grid-row: 1;
+        }
+
+        .cta {
+            grid-column: 1 / 3;
+            grid-row: 2;
+        }
+
+        .links {
+            grid-column: 1 / 3;
+            grid-row: 3;
+        }
+
+        .drawing {
+            grid-column: 3 / 5;
+            grid-row: 1/4;
+        }
+
+    }
+
+    .container {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}

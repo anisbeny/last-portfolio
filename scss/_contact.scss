@@ -1,0 +1,109 @@
+@import "variables";
+@import "mixins";
+@import "extends";
+#contact_page{
+    width: 85%;
+    margin: auto;
+    #contact{
+        figure{
+            width: 75%;
+            margin:30px auto;
+            img{
+                @include picture;
+               
+
+            }
+        }
+        form{
+            
+            color: $grey;
+            font-size: 1.3rem;
+            .champ{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 20px;
+                label{
+                    text-transform: capitalize;
+                    span{
+                        color: red;
+                        margin-left: 5px;
+                       
+                    }
+              
+                }
+                .text{
+                    font-size: .9rem;
+                    text-align: center;
+                    line-height: 1.9;
+                    padding:  0 20px;
+                }
+                input, select, textarea{
+                    width: 75%;
+                    background: transparent;
+                    color: #c5c5c5;
+                    padding: 10px;
+                 
+                    border-radius: 50px;
+                    text-align: center;
+                    outline: none;
+                    border: 1px solid #fff;
+                }
+                select{
+                    option{
+                        background: $fond;
+                    }
+                }
+                textarea{
+                    border-radius: 5px;
+                    text-align: left;
+                    padding: 15px;
+                }
+                .misstext, .missmail, .missname, .misscheck{
+                    color:red;
+                    font-size: 1rem;
+                }
+            }
+            .btn_form{
+               width: max-content;
+               margin: 20px auto;
+                button{
+                    position: relative;
+                    @include cta($fushia);
+                      background: none;
+                      display:block;
+                      text-align: center;
+                      cursor: pointer;
+                      &::after{
+                        @include hover($fushia);
+                     }
+                     &:hover::after{
+                        @extend %hover;
+                     }
+                }
+            }
+        }
+    }
+}
+@media screen and(min-width:1024px){
+    #contact_page{
+        #contact{
+            
+            display: grid;
+            grid-template-columns: 40% 60%;
+            place-items: center;
+            figure{
+                width: 60%;
+                align-self: flex-start;
+            }
+            form{
+               .champ{
+                   .text{
+                       padding: 0 50px;
+                   }
+               } 
+            }
+        }
+    }
+}
